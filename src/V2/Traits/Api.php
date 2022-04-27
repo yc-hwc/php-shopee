@@ -48,7 +48,7 @@ trait Api
         $this->url = $this->shopeeSDK->config['shopeeUrl'];
         $this->timestamp = time();
         $this->setApiCommonParameters();
-        return $this;
+        return sprintf('%s%s', $this->url, $this->uri);
     }
 
     public function fullUrl()
@@ -59,8 +59,6 @@ trait Api
             $this->uri,
             empty($this->options['query'])? '': http_build_query($this->options['query'])
         ]);
-
-        $this->options['query'] = [];
 
         return $fullUrl;
     }
@@ -183,7 +181,7 @@ trait Api
             $this->httpClient = new Http();
         }
 
-        $resource = $this->fullUrl();
+        $resource = $this->generateUrl();
         $response = $this->httpClient->request($this->method, $resource, $this->options);
         $this->setResponse($response);
         $data = @json_decode($response->getBody(), true);
