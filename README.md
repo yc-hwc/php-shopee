@@ -1,9 +1,9 @@
-# laravel-shopee
-PHP Shopee v2 SDK
+# php-shopee
+php shopee v2 SDK
 
 #### 安装教程
 ````
-composer require yc-hwc/laravel-shopee
+composer require yc-hwc/php-shopee
 ````
 
 ### 用法

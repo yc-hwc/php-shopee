@@ -3,6 +3,7 @@
 namespace PHPShopee\V2\Traits;
 
 use GuzzleHttp\Client as Http;
+use GuzzleHttp\Psr7\Response;
 
 trait Api
 {
@@ -16,6 +17,11 @@ trait Api
 
     protected $method = 'post';
 
+    protected $response;
+
+    /**
+     * @var Http $httpClient
+     */
     protected $httpClient;
 
     protected $options = [
@@ -124,23 +130,9 @@ trait Api
 
     /**
      * @Author: hwj
-     * @DateTime: 2022/4/27 10:55
-     * @return Http
-     */
-    public function httpClient()
-    {
-        if (empty($this->httpClient)) {
-            $this->httpClient = new Http();
-        }
-
-        return $this->httpClient;
-    }
-
-    /**
-     * @Author: hwj
-     * @DateTime: 2022/4/20 17:48
-     * @return array|mixed
-     * @throws RequestException
+     * @DateTime: 2022/4/27 11:30
+     * @return array|mixed|\Psr\Http\Message\StreamInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function post()
     {
@@ -149,9 +141,9 @@ trait Api
 
     /**
      * @Author: hwj
-     * @DateTime: 2022/4/20 17:49
-     * @return array|mixed
-     * @throws RequestException
+     * @DateTime: 2022/4/27 11:30
+     * @return array|mixed|\Psr\Http\Message\StreamInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function get()
     {
@@ -160,15 +152,42 @@ trait Api
 
     /**
      * @Author: hwj
-     * @DateTime: 2022/4/20 17:49
-     * @return array|mixed
-     * @throws RequestException\
+     * @DateTime: 2022/4/27 11:29
+     * @return Response
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * @Author: hwj
+     * @DateTime: 2022/4/23 11:19
+     * @param Response $response
+     * @return Response
+     */
+    public function setResponse(Response $response)
+    {
+        return $this->response = $response;
+    }
+
+    /**
+     * @Author: hwj
+     * @DateTime: 2022/4/27 11:14
+     * @return array|mixed|\Psr\Http\Message\StreamInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function run()
     {
+        if (empty($this->httpClient)) {
+            $this->httpClient = new Http();
+        }
+
         $resource = $this->fullUrl();
-        $response = $this->httpClient()->request($this->method, $resource, $this->options);
-        return $response;
+        $response = $this->httpClient->request($this->method, $resource, $this->options);
+        $this->setResponse($response);
+        $data = @json_decode($response->getBody(), true);
+        return is_array($data)? $data: $response->getBody();
     }
 
     /**

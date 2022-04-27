@@ -1,6 +1,6 @@
 {
-  "name": "yc-hwc/laravel-shopee",
-  "description": "PHP Shopee SDK",
+  "name": "yc-hwc/php-shopee",
+  "description": "PHP shopee v2 SDK",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
@@ -11,7 +11,7 @@
   ],
   "require": {
       "php": ">=7.2",
-      "laravel/framework": "^8"
+      "guzzlehttp/guzzle": "^7.0"
   },
   "autoload": {
     "psr-4": {

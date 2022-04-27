@@ -53,6 +53,4 @@ abstract class ShopeeResource
         $this->childResources = sprintf('/%s', $childResources);
         return $this;
     }
-
-    public abstract function setHttpClient();
 }
