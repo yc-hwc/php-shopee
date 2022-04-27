@@ -1,0 +1,21 @@
+{
+  "name": "yc-hwc/laravel-shopee",
+  "description": "PHP Shopee SDK",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "huangweijie",
+      "email": "1539369355@qq.com"
+    }
+  ],
+  "require": {
+      "php": ">=7.2",
+      "laravel/framework": "^8"
+  },
+  "autoload": {
+    "psr-4": {
+      "PHPShopee\\": "src"
+    }
+  }
+}
