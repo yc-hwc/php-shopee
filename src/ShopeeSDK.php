@@ -30,6 +30,28 @@ use PHPShopee\V2\{FirstMile,Shop,Auth,GlobalProduct,MediaSpace,Product,Merchant,
  * @property-read AccountHealth $accountHealth
  * @property-read Publics $publics
  * @property-read Push $push
+ *
+ * @method FirstMile firstMile()
+ * @method Shop shop()
+ * @method Auth auth()
+ * @method GlobalProduct globalProduct()
+ * @method MediaSpace mediaSpace()
+ * @method Product product()
+ * @method Merchant merchant()
+ * @method Order order()
+ * @method Logistics logistics()
+ * @method Payment payment()
+ * @method Discount discount()
+ * @method BundleDeal bundleDeal()
+ * @method AddOnDeal addOnDeal()
+ * @method Voucher voucher()
+ * @method FollowPrize followPrize()
+ * @method TopPicks topPicks()
+ * @method ShopCategory shopCategory()
+ * @method Returns returns()
+ * @method AccountHealth accountHealth()
+ * @method Publics publics()
+ * @method Push push()
  */
 class ShopeeSDK
 {
