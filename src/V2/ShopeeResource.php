@@ -3,7 +3,6 @@
 namespace PHPShopee\V2;
 
 use PHPShopee\ShopeeSDK;
-use PHPShopee\V2\Traits\Api;
 
 abstract class ShopeeResource
 {
@@ -46,7 +45,7 @@ abstract class ShopeeResource
      * @Author: hwj
      * @DateTime: 2022/4/25 14:06
      * @param $childResources
-     * @return $this
+     * @return staitc
      */
     public function api($childResources)
     {
