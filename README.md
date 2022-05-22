@@ -30,7 +30,7 @@ composer require yc-hwc/php-shopee
     ];
 
     $shopeeSDK = \PHPShopee\ShopeeSDK::config($config);
-    $fullUrl = $shopeeSDK->shop
+    $fullUrl = $shopeeSDK->shopAuth()
         ->api('auth_partner')
         ->withQueryString([
             'redirect' => 'https://www.baidu.com/',

@@ -3,11 +3,11 @@
 
 namespace PHPShopee\V2;
 
-use PHPShopee\V2\Traits\PartnerApi;
+use PHPShopee\V2\Traits\ShopApi;
 
 class Shop extends ShopeeResource
 {
-    use PartnerApi;
+    use ShopApi;
 
     protected $parentResource = '/api/v2/shop';
 }

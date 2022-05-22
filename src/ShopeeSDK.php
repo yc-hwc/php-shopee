@@ -3,7 +3,7 @@
 namespace PHPShopee;
 
 use PHPShopee\Exception\SdkException;
-use PHPShopee\V2\{FirstMile,Shop,Auth,GlobalProduct,MediaSpace,Product,Merchant,Order,
+use PHPShopee\V2\{FirstMile,Shop,ShopAuth,Auth,GlobalProduct,MediaSpace,Product,Merchant,Order,
     Logistics,Payment,Discount,BundleDeal,AddOnDeal,Voucher,FollowPrize,TopPicks,ShopCategory,
     Returns,AccountHealth,Publics,Push
 };
@@ -11,6 +11,7 @@ use PHPShopee\V2\{FirstMile,Shop,Auth,GlobalProduct,MediaSpace,Product,Merchant,
 /**
  * @property-read FirstMile $firstMile
  * @property-read Shop $shop
+ * @property-read ShopAuth $shopAuth
  * @property-read Auth $auth
  * @property-read GlobalProduct $globalProduct
  * @property-read MediaSpace $mediaSpace
@@ -33,6 +34,7 @@ use PHPShopee\V2\{FirstMile,Shop,Auth,GlobalProduct,MediaSpace,Product,Merchant,
  *
  * @method FirstMile firstMile()
  * @method Shop shop()
+ * @method ShopAuth shopAuth()
  * @method Auth auth()
  * @method GlobalProduct globalProduct()
  * @method MediaSpace mediaSpace()
@@ -61,6 +63,7 @@ class ShopeeSDK
     protected $resources = [
         'firstMile',
         'shop',
+        'shopAuth',
         'auth',
         'globalProduct',
         'mediaSpace',
