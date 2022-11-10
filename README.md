@@ -51,7 +51,7 @@ composer require yc-hwc/php-shopee
     
     $params = [
         'declare_date' => '',
-        'quantity' => 1,
+        'quantity'     => 1,
         'seller_info' => [
             'name'    => "tom",
             'address' => "xxxxxxx",
